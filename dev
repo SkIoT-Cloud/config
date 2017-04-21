@@ -1,0 +1,8 @@
+[master]
+localhost
+
+[ops]
+ip-172-31-37-146.us-west-2.compute.internal
+
+[services]
+ip-172-31-33-85.us-west-2.compute.internal
