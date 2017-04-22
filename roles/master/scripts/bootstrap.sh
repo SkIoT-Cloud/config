@@ -2,7 +2,7 @@
 cd /opt
 sudo yum install -y git python2-devel python-setuptools gcc openssl-devel
 sudo easy_install pip
-sudo pip install ansible
+sudo pip install ansible ansible-vault
 sudo mkdir /app
 chown :wheel /app
 cd /app
