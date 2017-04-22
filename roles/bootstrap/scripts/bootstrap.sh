@@ -12,12 +12,4 @@ while read line; do
         export AWS_SECRET_ACCESS_KEY=$secret_key
     fi
 done < credentials.csv
-cd /app
-git clone https://github.com/skiot-cloud/config
-ansible-playbook -i localhost,
-#if [ ! -f ec2.py ]; then
-#    sudo curl https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/ec2.py > /opt/ec2.py
-#    sudo chmod 771 /opt/ec2.py
-#    sudo curl https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/ec2.ini > /opt/ec2.ini
-#fi
-#ansible -i ec2.py -m ping
+echo "DONE"

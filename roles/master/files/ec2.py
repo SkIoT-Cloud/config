@@ -2,6 +2,7 @@
 
 '''
 EC2 external inventory script
+from https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/ec2.py
 =================================
 
 Generates inventory that Ansible can understand by making API request to

@@ -1,0 +1,11 @@
+---
+- name: "Configure aws dynamic inventory"
+  template:
+    src: ec2.ini
+    dest: /app/config/
+    mode: 400
+- name: "Copy aws dynamic inventory script"
+  copy:
+    src: ec2.py
+    owner: ec2-user
+    mode: 500
