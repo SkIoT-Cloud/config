@@ -1,0 +1,25 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: "Install pip"
+      easy_install:
+        name: pip
+        state: present
+
+    - name: "Install packages"
+      yum:
+        name: "{{ item }}"
+      with_items:
+        - gcc
+        - openssl-devel
+        - python2-devel
+
+    - name: "Update Ansible"
+      pip:
+        name: ansible
+        state: latest
+
+#    - name: "Install boto"
+#      pip:
+#        name: boto

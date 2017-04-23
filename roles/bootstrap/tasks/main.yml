@@ -1,24 +1,31 @@
 ---
-- name: "Install pip"
-  easy_install:
-    name: pip
-    state: present
+- name: "Debug vars"
+  debug:
+    msg: "{{ aws.ec2_access_key }} .. {{ aws.ec2.key_name }}"
 
-- name: "Install boto"
-  pip:
-    name: boto
-
-- name: "Setup vpc"
-  ec2_vpc_net:
-    aws_access_key: "{{ ec2_access_key }}"
-    aws_secret_key: "{{ ec2_secret_key }}"
-    name: skiot-cloud
-    cidr_block: 172.31.0.0/16
-    region: us-west-2
-    tags:
-      Solution: skiot
-      Name: skiot-cloud
-
+#- name: "Setup vpc"
+#  ec2_vpc_net:
+#    aws_access_key: "{{ ec2_access_key }}"
+#    aws_secret_key: "{{ ec2_secret_key }}"
+#    name: skiot-cloud
+#    cidr_block: "{{ aws.ec2.cidr }}"
+#    region: "{{ aws.region }}"
+#    tags:
+#      Solution: "{{ application.solution }}"
+#      Name: "{{ application.solution }}-cloud"
+#- name: "Gather VPC facts"
+#  ec2_vpc_net_facts:
+#    filters:
+#      "tag:Solution": "{{ application.solution }}"
+#- name: "EC2 Key"
+#  ec2_key:
+#    aws_access_key: "{{ ec2_access_key }}"
+#    aws_secret_key: "{{ ec2_secret_key }}"
+#    name: skiot-ops
+#
+#- name: "EC2 Security Group"
+#  ec2_group:
+#    name: skiot-main
 #- name: "Service ec2 boxes"
 #  ec2:
 #    aws_access_key: "{{ ec2_access_key }}"
