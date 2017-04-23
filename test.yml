@@ -1,7 +1,10 @@
 ---
 - hosts: localhost
   connection: local
+  vars_files:
+    - group_vars/vault.yml
+    - group_vars/bootstrap
   tasks:
     - name: "debug"
       debug:
-        msg: {{ec2_access_key}}
+        msg: "{{ ec2_access_key }}"
