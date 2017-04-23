@@ -1,1 +1,10 @@
-region: us-west-2
+---
+aws:
+  region: us-west-2
+  ec2:
+    instance-type: t2.micro
+    key-name: skiot-ops
+    image: ami-6f68cf0f
+    group: skiot
+skiot:
+  solution: skiot

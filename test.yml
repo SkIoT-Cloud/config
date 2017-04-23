@@ -2,7 +2,7 @@
 - hosts: localhost
   connection: local
   vars_files:
-    - group_vars/vault.yml
+    - host_vars/localhost.yml
     - group_vars/bootstrap
   tasks:
     - name: "debug"
