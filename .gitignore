@@ -1,4 +1,5 @@
 .idea
 *.iml
 credentials.csv
-skiot-ops.pem
+.vault_pass.py
+*.retry

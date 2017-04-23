@@ -7,3 +7,7 @@
 - name: "Install boto"
   pip:
     name: boto
+
+- name: "Test Vault"
+  debug:
+    msg: "Key {{ ec2_access_key }}"
