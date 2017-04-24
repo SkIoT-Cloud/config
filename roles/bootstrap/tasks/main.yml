@@ -1,28 +1,30 @@
 ---
-- name: "Debug vars"
-  debug:
-    msg: "{{ aws.ec2_access_key }} .. {{ aws.ec2.key_name }}"
+#- name: "Debug vars"
+#  debug:
+#    msg: "{{ aws.ec2_access_key }} .. {{ aws.ec2.key_name }}"
 
-#- name: "Setup vpc"
-#  ec2_vpc_net:
-#    aws_access_key: "{{ ec2_access_key }}"
-#    aws_secret_key: "{{ ec2_secret_key }}"
-#    name: skiot-cloud
-#    cidr_block: "{{ aws.ec2.cidr }}"
-#    region: "{{ aws.region }}"
-#    tags:
-#      Solution: "{{ application.solution }}"
-#      Name: "{{ application.solution }}-cloud"
-#- name: "Gather VPC facts"
-#  ec2_vpc_net_facts:
-#    filters:
-#      "tag:Solution": "{{ application.solution }}"
+- name: "Setup vpc"
+  ec2_vpc_net:
+    aws_access_key: "{{ aws.ec2_access_key }}"
+    aws_secret_key: "{{ aws.ec2_secret_key }}"
+    name: "{{ app.name }}-cloud"
+    cidr_block: "{{ aws.ec2.cidr }}"
+    region: "{{ aws.region }}"
+    tags:
+      Solution: "{{ app.name }}"
+      Name: "{{ app.name }}-cloud"
+- name: "Gather VPC facts"
+  ec2_vpc_net_facts:
+    aws_access_key: "{{ aws.ec2_access_key }}"
+    aws_secret_key: "{{ aws.ec2_secret_key }}"
+    region: "{{ aws.region }}"
+    filters:
+      "tag:Solution": "{{ app.name }}"
 #- name: "EC2 Key"
 #  ec2_key:
 #    aws_access_key: "{{ ec2_access_key }}"
 #    aws_secret_key: "{{ ec2_secret_key }}"
 #    name: skiot-ops
-#
 #- name: "EC2 Security Group"
 #  ec2_group:
 #    name: skiot-main
