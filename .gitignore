@@ -1,5 +1,5 @@
 .idea
 *.iml
 credentials.csv
-.vault_pass.py
+init/.vault_pass.py
 *.retry

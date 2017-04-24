@@ -1,8 +1,6 @@
 .idea
 .git
-*.iml
 credentials.csv
-Dockertmp
 Dockerfile
 init.*
 LICENSE

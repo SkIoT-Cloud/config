@@ -7,7 +7,7 @@
         name: pip
         state: present
 
-    - name: "Install packages"
+    - name: "Yum install"
       yum:
         name: "{{ item }}"
       with_items:
@@ -15,11 +15,10 @@
         - openssl-devel
         - python2-devel
 
-    - name: "Update Ansible"
+    - name: "pip install"
       pip:
-        name: ansible
+        name: "{{ item }}"
         state: latest
-
-#    - name: "Install boto"
-#      pip:
-#        name: boto
+      with_items:
+        - boto
+        - ansible
