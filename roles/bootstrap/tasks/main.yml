@@ -2,6 +2,10 @@
 #- name: "Debug vars"
 #  debug:
 #    msg: "{{ aws.ec2_access_key }} .. {{ aws.ec2.key_name }}"
+#- name: "Dump all vars"
+#  template:
+#    src: dumpall.j2
+#    dest: /tmp/ansible.all
 
 - name: "Setup vpc"
   ec2_vpc_net:
@@ -20,14 +24,15 @@
     region: "{{ aws.region }}"
     filters:
       "tag:Solution": "{{ app.name }}"
-#- name: "EC2 Key"
-#  ec2_key:
-#    aws_access_key: "{{ ec2_access_key }}"
-#    aws_secret_key: "{{ ec2_secret_key }}"
-#    name: skiot-ops
-#- name: "EC2 Security Group"
-#  ec2_group:
-#    name: skiot-main
+- name: "EC2 Key"
+  ec2_key:
+    aws_access_key: "{{ aws.ec2_access_key }}"
+    aws_secret_key: "{{ aws.ec2_secret_key }}"
+    region: "{{ aws.region }}"
+    name: "{{ app.name }}-ops"
+- name: "EC2 Security Group"
+  ec2_group:
+    name: "{{ app.name }}-main"
 #- name: "Service ec2 boxes"
 #  ec2:
 #    aws_access_key: "{{ ec2_access_key }}"

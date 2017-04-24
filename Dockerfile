@@ -1,4 +1,5 @@
 FROM bootstrap-base
 WORKDIR /app/config
 COPY . /app/config
-CMD ["ansible-playbook", "bootstrap.yml"]
+RUN ansible-playbook bootstrap.yml
+#CMD ["ansible-playbook", "bootstrap.yml"]
